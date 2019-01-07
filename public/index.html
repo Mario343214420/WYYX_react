@@ -11,10 +11,34 @@
 
 
     <title>React App</title>
+
   </head>
   <body>
 
     <div id="root"></div>
 
   </body>
+  <script type="text/javascript">
+    document.addEventListener('touchstart',function(event){
+      event.preventDefault();
+    })
+    //点透
+    !(function () {
+      var aNodes = document.querySelectorAll('a');
+      for (var i = 0; i < aNodes.length; i++) {
+        aNodes[i].addEventListener('touchstart', function () {
+          window.location = this.href;
+        });
+      }
+      ;
+    })();
+    //rem适配
+    !(function () {
+      var width = document.documentElement.clientWidth;
+      var styleNode = document.createElement('style');
+      styleNode.innerHTML = 'html{font-size: ' + width / 10 + 'px !important;}';
+      document.head.appendChild(styleNode);
+    })();
+    // })
+  </script>
 </html>
